@@ -42,7 +42,7 @@ def dashboard(request):
     stats = statistics(people)
     for p in people: p.stats = stats[p.pk]
     recent = Session.objects.filter(mentee__owner=request.user).select_related('mentee')[:5]
-    return render(request, 'dashboard.html', {'people': people, 'people_total': all_people.count(), 'goals_total': Goal.objects.filter(mentee__owner=request.user).count(), 'session_total': Session.objects.filter(mentee__owner=request.user).count(), 'recent_sessions': recent, 'active': 'dashboard'})
+    return render(request, 'dashboard.html', {'people': people, 'people_total': all_people.count(), 'goals_total': Goal.objects.filter(mentee__owner=request.user).count(), 'session_total': Session.objects.filter(mentee__owner=request.user).count(), 'recent_sessions': recent, 'next_steps_sessions': [s for s in recent if s.next_steps.strip()], 'active': 'dashboard'})
 
 @login_required
 @require_GET
