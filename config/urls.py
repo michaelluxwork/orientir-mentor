@@ -1,0 +1,7 @@
+from django.urls import path
+from django.contrib.auth.views import LogoutView
+from mentoring import views as v
+
+urlpatterns = [path('health/', v.health, name='health'), path('accounts/login/', v.MentorLoginView.as_view(), name='login'), path('accounts/logout/', LogoutView.as_view(), name='logout'), path('', v.dashboard, name='dashboard'), path('mentees/', v.mentee_list, name='mentee-list'), path('mentees/new/', v.edit_record, {'kind': 'mentee'}, name='mentee-new'), path('mentees/<int:pk>/', v.mentee_detail, name='mentee-detail'), path('mentees/<int:pk>/edit/', v.edit_record, {'kind': 'mentee'}, name='mentee-edit'), path('mentees/<int:pk>/delete/', v.delete_record, {'kind': 'mentee'}, name='mentee-delete'), path('mentees/<int:pk>/goals/new/', v.edit_record, {'kind': 'goal'}, name='goal-new'), path('mentees/<int:pk>/goals/<int:record_id>/edit/', v.edit_record, {'kind': 'goal'}, name='goal-edit'), path('mentees/<int:pk>/goals/<int:record_id>/delete/', v.delete_record, {'kind': 'goal'}, name='goal-delete'), path('mentees/<int:pk>/sessions/new/', v.edit_record, {'kind': 'session'}, name='session-new'), path('mentees/<int:pk>/sessions/<int:record_id>/edit/', v.edit_record, {'kind': 'session'}, name='session-edit'), path('mentees/<int:pk>/sessions/<int:record_id>/delete/', v.delete_record, {'kind': 'session'}, name='session-delete'), path('mentees/<int:pk>/report/', v.report, name='report')]
+handler404 = 'mentoring.views.not_found'
+handler500 = 'mentoring.views.server_error'

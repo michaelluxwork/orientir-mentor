@@ -1,0 +1,32 @@
+[Unit]
+Description=Orientir curator review
+After=network.target
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+[Service]
+Type=simple
+User=orientir-demo
+Group=orientir-demo
+WorkingDirectory=/opt/orientir-demo/current
+EnvironmentFile=/etc/orientir-demo.env
+ExecStart=/opt/orientir-demo/current/.venv/bin/python serve.py
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=30
+MemoryHigh=128M
+MemoryMax=160M
+MemorySwapMax=64M
+CPUQuota=50%
+TasksMax=32
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/orientir-demo
+UMask=0077
+StandardOutput=null
+StandardError=null
+
+[Install]
+WantedBy=multi-user.target
