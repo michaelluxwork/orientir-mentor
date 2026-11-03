@@ -8,3 +8,5 @@ body{font-weight:400}.side-nav{background:#f1f3f4}.wordmark{font-size:27px;font-
 @media print{.workspace-topline,.review-notice{display:none!important}.workspace-content{max-width:none;margin:0}.main{padding:0!important}.report{padding:0;border:0;box-shadow:none}.report-header h2{font-size:20pt}.report-header h3{font-size:14pt}.report-filter{display:none!important}.report-header>p{font-size:9pt}}
 
 @media(max-width:767px){.dashboard-panel .person-info>a,.dashboard-panel .meeting-copy>a,.dashboard-panel .row-meta a{display:inline-flex;align-items:center;min-height:44px}.dashboard-panel .row-meta{margin-top:0}.dashboard-panel .person-row{padding-top:6px;padding-bottom:10px}.panel-heading>a,.panel-heading a,.row-actions a,.button,.overview-heading>.button,.record-actions .button,.field input,.field select,.search-form input,.search-form .button,.form-actions .button,.report-filter .button,.login-submit,.mobile-menu summary{min-height:44px}.dashboard-panel .panel-scroll{max-height:320px}.dashboard-panel{max-height:370px}.review-notice{color:#65717d}}
+
+@media(max-width:767px){.people-table td:first-child>a{display:inline-flex;align-items:center;min-height:44px}}
